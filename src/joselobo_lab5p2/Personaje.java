@@ -83,9 +83,13 @@ public class Personaje {
         this.vida = vida;
     }
 
+    public String toString2() {
+        return "nombre->" + nombre + "\ndebilidad->" + debilidad + "\nuniversoPertenece->" + universoPertenece + "\npoder->" + fuerzaMental + "\nfuerza->" + fuerzaFisica + "\nagilidadFisica->" + resistenciaFisica + "\nagilidadMental->" + resistenciaMental + "\nvida->" + vida;
+    }
+
     @Override
     public String toString() {
-        return "nombre->" + nombre + "\ndebilidad->" + debilidad + "\nuniversoPertenece->" + universoPertenece + "\npoder->" + fuerzaMental + "\nfuerza->" + fuerzaFisica + "\nagilidadFisica->" + resistenciaFisica + "\nagilidadMental->" + resistenciaMental + "\nvida->" + vida;
+        return nombre;
     }
 
 }

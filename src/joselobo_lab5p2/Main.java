@@ -337,11 +337,21 @@ public class Main extends javax.swing.JFrame {
     private void B_AgregarPersonaje1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_AgregarPersonaje1ActionPerformed
         // TODO add your handling code here:
         try {
-            personajes.add(new Personaje(Tb_Nombre.getText(), Tb_Debilidad.getText(), JL_Universo.getSelectedValue(), Integer.parseInt(TbF_FuerzaMental.getText()), Integer.parseInt(TbF_FuerzaFisica.getText()), Integer.parseInt(TbF_ResistenciaFisica.getText()), Integer.parseInt(TbF_ResistenciaMental.getText()), Integer.parseInt(TbF_Vida.getText())));
-            JOptionPane.showMessageDialog(JF_AgregarPersonaje, "Se ha agregado exitosamente", "Agregado", 1);
-            Tb_Nombre.setText("");
-            Tb_Debilidad.setText("");
-            JL_Universo.setSelectedIndex(-1);
+            if (JL_Universo.getSelectedIndex() == -1) {
+                JOptionPane.showMessageDialog(JF_AgregarPersonaje, "Faltan el Universo", "Error", 2);
+
+            } else {
+                personajes.add(new Personaje(Tb_Nombre.getText(), Tb_Debilidad.getText(), JL_Universo.getSelectedValue(), Integer.parseInt(TbF_FuerzaMental.getText()), Integer.parseInt(TbF_FuerzaFisica.getText()), Integer.parseInt(TbF_ResistenciaFisica.getText()), Integer.parseInt(TbF_ResistenciaMental.getText()), Integer.parseInt(TbF_Vida.getText())));
+                JOptionPane.showMessageDialog(JF_AgregarPersonaje, "Se ha agregado exitosamente", "Agregado", 1);
+                Tb_Nombre.setText("");
+                Tb_Debilidad.setText("");
+                JL_Universo.setSelectedIndex(-1);
+                TbF_FuerzaMental.setText("");
+                TbF_FuerzaFisica.setText("");
+                TbF_ResistenciaFisica.setText("");
+                TbF_ResistenciaMental.setText("");
+                TbF_Vida.setText("");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_AgregarPersonaje, "Faltan casillas por llenar o hay un dato erroneo", "Error", 2);
         }
@@ -353,6 +363,39 @@ public class Main extends javax.swing.JFrame {
         JF_ListarPersonajes.setLocationRelativeTo(this);
         JF_ListarPersonajes.setVisible(true);
         this.setVisible(false);
+
+        //arbol
+        DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < personajes.size(); i++) {
+
+            if (personajes.get(i).getUniversoPertenece().equals("DC")) {
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode("DC");
+                raiz.add(a);
+                DefaultMutableTreeNode b = new DefaultMutableTreeNode(personajes.get(i));
+                a.add(b);
+            }
+            if (personajes.get(i).getUniversoPertenece().equals("Midway Games")) {
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode("Midway Games");
+                raiz.add(a);
+                DefaultMutableTreeNode b = new DefaultMutableTreeNode(personajes.get(i));
+                a.add(b);
+            }
+            if (personajes.get(i).getUniversoPertenece().equals("Capcom")) {
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode("Capcom");
+                raiz.add(a);
+                DefaultMutableTreeNode b = new DefaultMutableTreeNode(personajes.get(i));
+                a.add(b);
+            }
+            if (personajes.get(i).getUniversoPertenece().equals("Marvel")) {
+                DefaultMutableTreeNode a = new DefaultMutableTreeNode("Marvel");
+                raiz.add(a);
+                DefaultMutableTreeNode b = new DefaultMutableTreeNode(personajes.get(i));
+                a.add(b);
+            }
+
+        }
+        model.reload();
     }//GEN-LAST:event_BMenu_ListarPersonajesActionPerformed
 
     private void B_ListadoVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_ListadoVolverActionPerformed
@@ -383,7 +426,6 @@ public class Main extends javax.swing.JFrame {
                 Tb_TituloListar.setText(personaje_seleccionado.getNombre());
             } else {
                 String temp = "";
-
                 for (int i = 0; i < raiz.getChildCount(); i++) {
                     if (raiz.getChildAt(i).toString().equals("DC")) {
                         Tb_TituloListar.setText("DC");
