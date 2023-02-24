@@ -1,6 +1,7 @@
 package joselobo_lab5p2;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -46,13 +47,14 @@ public class Main extends javax.swing.JFrame {
         lb_TituloAgregarPersonaje = new javax.swing.JLabel();
         JF_ListarPersonajes = new javax.swing.JFrame();
         lb_Listado = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        TA_ListadoPersonajes = new javax.swing.JTextArea();
         lb_Personajes = new javax.swing.JLabel();
         Tb_TituloListar = new javax.swing.JTextField();
         B_ListadoVolver = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JT_Personajes = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Listado_Personajes = new javax.swing.JList<>();
+        JD_SimulacionPelea = new javax.swing.JFrame();
         lb_Menu = new javax.swing.JLabel();
         BMenu_AgregarPersonaje = new javax.swing.JButton();
         BMenu_ListarPersonajes = new javax.swing.JButton();
@@ -194,10 +196,6 @@ public class Main extends javax.swing.JFrame {
         lb_Listado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lb_Listado.setText("Listado de Personajes");
 
-        TA_ListadoPersonajes.setColumns(20);
-        TA_ListadoPersonajes.setRows(5);
-        jScrollPane3.setViewportView(TA_ListadoPersonajes);
-
         lb_Personajes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lb_Personajes.setText("Personajes");
 
@@ -219,18 +217,13 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(JT_Personajes);
 
+        Listado_Personajes.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(Listado_Personajes);
+
         javax.swing.GroupLayout JF_ListarPersonajesLayout = new javax.swing.GroupLayout(JF_ListarPersonajes.getContentPane());
         JF_ListarPersonajes.getContentPane().setLayout(JF_ListarPersonajesLayout);
         JF_ListarPersonajesLayout.setHorizontalGroup(
             JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_ListarPersonajesLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(lb_Personajes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
-                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Tb_TituloListar)
-                    .addComponent(jScrollPane3))
-                .addGap(38, 38, 38))
             .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
                 .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
@@ -238,11 +231,21 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(lb_Listado))
                     .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
                         .addGap(282, 282, 282)
-                        .addComponent(B_ListadoVolver))
+                        .addComponent(B_ListadoVolver)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_ListarPersonajesLayout.createSequentialGroup()
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(lb_Personajes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                        .addComponent(Tb_TituloListar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
         );
         JF_ListarPersonajesLayout.setVerticalGroup(
             JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,11 +258,24 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(lb_Personajes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(B_ListadoVolver)
                 .addGap(18, 18, 18))
+        );
+
+        JD_SimulacionPelea.setTitle("Elijan sus Personajes");
+
+        javax.swing.GroupLayout JD_SimulacionPeleaLayout = new javax.swing.GroupLayout(JD_SimulacionPelea.getContentPane());
+        JD_SimulacionPelea.getContentPane().setLayout(JD_SimulacionPeleaLayout);
+        JD_SimulacionPeleaLayout.setHorizontalGroup(
+            JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 631, Short.MAX_VALUE)
+        );
+        JD_SimulacionPeleaLayout.setVerticalGroup(
+            JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -409,8 +425,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.isMetaDown()) {
             //seleccionar un nodo con click derecho
+            DefaultListModel ModelList = (DefaultListModel) Listado_Personajes.getModel();
             DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
+            ModelList.removeAllElements();
             int row = JT_Personajes.getClosestRowForLocation(
                     evt.getX(), evt.getY());
             JT_Personajes.setSelectionRow(row);
@@ -422,7 +440,13 @@ public class Main extends javax.swing.JFrame {
                 personaje_seleccionado
                         = (Personaje) nodo_seleccionado.
                                 getUserObject();
-                TA_ListadoPersonajes.setText(personaje_seleccionado.toString());
+                ModelList.addElement("Debilidad -> " + ((Personaje) nodo_seleccionado.getUserObject()).getDebilidad());
+                ModelList.addElement("Universo -> " + ((Personaje) nodo_seleccionado.getUserObject()).getUniversoPertenece());
+                ModelList.addElement("Fuerza Mental -> " + ((Personaje) nodo_seleccionado.getUserObject()).getFuerzaMental());
+                ModelList.addElement("Fuerza Fisica -> " + ((Personaje) nodo_seleccionado.getUserObject()).getFuerzaFisica());
+                ModelList.addElement("Resistencia Fisica -> " + ((Personaje) nodo_seleccionado.getUserObject()).getResistenciaFisica());
+                ModelList.addElement("Resistencia Mental -> " + ((Personaje) nodo_seleccionado.getUserObject()).getResistenciaMental());
+                ModelList.addElement("Puntos de Vida -> " + ((Personaje) nodo_seleccionado.getUserObject()).getVida());
                 Tb_TituloListar.setText(personaje_seleccionado.getNombre());
             } else {
                 String temp = "";
@@ -430,30 +454,29 @@ public class Main extends javax.swing.JFrame {
                     if (raiz.getChildAt(i).toString().equals("DC")) {
                         Tb_TituloListar.setText("DC");
                         for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
-                            temp += ((Personaje) raiz.getChildAt(i).getChildAt(j)).getNombre() + "\n";
+                            ModelList.addElement(raiz.getChildAt(i).getChildAt(j));
                         }
                     }
                     if (raiz.getChildAt(i).toString().equals("Midway Games")) {
                         Tb_TituloListar.setText("Midway");
                         for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
-                            temp += ((Personaje) raiz.getChildAt(i).getChildAt(j)).getNombre() + "\n";
+                            ModelList.addElement(raiz.getChildAt(i).getChildAt(j));
                         }
                     }
                     if (raiz.getChildAt(i).toString().equals("Capcom")) {
                         Tb_TituloListar.setText("Capcom");
                         for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
-                            temp += ((Personaje) raiz.getChildAt(i).getChildAt(j)).getNombre() + "\n";
+                            ModelList.addElement(raiz.getChildAt(i).getChildAt(j));
                         }
                     }
                     if (raiz.getChildAt(i).toString().equals("Marvel")) {
                         Tb_TituloListar.setText("Marvel");
                         for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
-                            temp += ((Personaje) raiz.getChildAt(i).getChildAt(j)).getNombre() + "\n";
+                            ModelList.addElement(raiz.getChildAt(i).getChildAt(j));
                         }
                     }
 
                 }
-                TA_ListadoPersonajes.setText(temp);
             }
 
         }
@@ -501,11 +524,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_AgregarPersonaje1;
     private javax.swing.JButton B_ListadoVolver;
     private javax.swing.JButton B_SalirAgregarPersonaje;
+    private javax.swing.JFrame JD_SimulacionPelea;
     private javax.swing.JFrame JF_AgregarPersonaje;
     private javax.swing.JFrame JF_ListarPersonajes;
     private javax.swing.JList<String> JL_Universo;
     private javax.swing.JTree JT_Personajes;
-    private javax.swing.JTextArea TA_ListadoPersonajes;
+    private javax.swing.JList<String> Listado_Personajes;
     private javax.swing.JFormattedTextField TbF_FuerzaFisica;
     private javax.swing.JFormattedTextField TbF_FuerzaMental;
     private javax.swing.JFormattedTextField TbF_ResistenciaFisica;
@@ -515,7 +539,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField Tb_Nombre;
     private javax.swing.JTextField Tb_TituloListar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lb_Debilidad;
     private javax.swing.JLabel lb_Fuerza;
