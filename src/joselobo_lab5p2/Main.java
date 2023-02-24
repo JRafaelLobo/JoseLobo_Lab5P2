@@ -38,6 +38,15 @@ public class Main extends javax.swing.JFrame {
         TbF_ResistenciaMental = new javax.swing.JFormattedTextField();
         TbF_Vida = new javax.swing.JFormattedTextField();
         lb_TituloAgregarPersonaje = new javax.swing.JLabel();
+        JF_ListarPersonajes = new javax.swing.JFrame();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        lb_Listado = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        lb_Personajes = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        B_ListadoVolver = new javax.swing.JButton();
         lb_Menu = new javax.swing.JLabel();
         BMenu_AgregarPersonaje = new javax.swing.JButton();
         BMenu_ListarPersonajes = new javax.swing.JButton();
@@ -54,6 +63,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         B_AgregarPersonaje1.setText("AgregarPersonaje");
+        B_AgregarPersonaje1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_AgregarPersonaje1ActionPerformed(evt);
+            }
+        });
 
         lb_Nombre.setText("Nombre");
 
@@ -168,6 +182,75 @@ public class Main extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        JF_ListarPersonajes.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        JF_ListarPersonajes.setTitle("Listar Personajes");
+
+        jScrollPane2.setViewportView(jTextPane1);
+
+        lb_Listado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_Listado.setText("Listado de Personajes");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        lb_Personajes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_Personajes.setText("Personajes");
+
+        jTextField1.setEditable(false);
+
+        B_ListadoVolver.setText("Volver");
+        B_ListadoVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_ListadoVolverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JF_ListarPersonajesLayout = new javax.swing.GroupLayout(JF_ListarPersonajes.getContentPane());
+        JF_ListarPersonajes.getContentPane().setLayout(JF_ListarPersonajesLayout);
+        JF_ListarPersonajesLayout.setHorizontalGroup(
+            JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_ListarPersonajesLayout.createSequentialGroup()
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(lb_Personajes)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jScrollPane3))
+                .addGap(38, 38, 38))
+            .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(lb_Listado))
+                    .addGroup(JF_ListarPersonajesLayout.createSequentialGroup()
+                        .addGap(282, 282, 282)
+                        .addComponent(B_ListadoVolver)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JF_ListarPersonajesLayout.setVerticalGroup(
+            JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_ListarPersonajesLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lb_Listado)
+                .addGap(18, 18, 18)
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_Personajes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JF_ListarPersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(B_ListadoVolver)
+                .addGap(18, 18, 18))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
 
@@ -183,6 +266,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         BMenu_ListarPersonajes.setText("Listado de Personajes");
+        BMenu_ListarPersonajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BMenu_ListarPersonajesActionPerformed(evt);
+            }
+        });
 
         BMenu_SimulacionBatalla.setText("Simulacion de batalla");
 
@@ -235,6 +323,25 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_B_SalirAgregarPersonajeActionPerformed
 
+    private void B_AgregarPersonaje1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_AgregarPersonaje1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_AgregarPersonaje1ActionPerformed
+
+    private void BMenu_ListarPersonajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMenu_ListarPersonajesActionPerformed
+        // TODO add your handling code here:
+        JF_ListarPersonajes.pack();
+        JF_ListarPersonajes.setLocationRelativeTo(this);
+        JF_ListarPersonajes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BMenu_ListarPersonajesActionPerformed
+
+    private void B_ListadoVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_ListadoVolverActionPerformed
+        // TODO add your handling code here:
+        this.setLocationRelativeTo(this);
+        JF_ListarPersonajes.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_B_ListadoVolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,8 +382,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BMenu_ListarPersonajes;
     private javax.swing.JButton BMenu_SimulacionBatalla;
     private javax.swing.JButton B_AgregarPersonaje1;
+    private javax.swing.JButton B_ListadoVolver;
     private javax.swing.JButton B_SalirAgregarPersonaje;
     private javax.swing.JFrame JF_AgregarPersonaje;
+    private javax.swing.JFrame JF_ListarPersonajes;
     private javax.swing.JList<String> JL_Universo;
     private javax.swing.JFormattedTextField TbF_FuerzaFisica;
     private javax.swing.JFormattedTextField TbF_FuerzaMental;
@@ -286,10 +395,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField Tb_Debilidad;
     private javax.swing.JTextField Tb_Nombre;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lb_Debilidad;
     private javax.swing.JLabel lb_Fuerza;
+    private javax.swing.JLabel lb_Listado;
     private javax.swing.JLabel lb_Menu;
     private javax.swing.JLabel lb_Nombre;
+    private javax.swing.JLabel lb_Personajes;
     private javax.swing.JLabel lb_Poder;
     private javax.swing.JLabel lb_ResistenciaFisica;
     private javax.swing.JLabel lb_ResistenciaMental;
