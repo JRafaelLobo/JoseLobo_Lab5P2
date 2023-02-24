@@ -17,33 +17,223 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JF_AgregarPersonaje = new javax.swing.JFrame();
+        B_SalirAgregarPersonaje = new javax.swing.JButton();
+        B_AgregarPersonaje1 = new javax.swing.JButton();
+        lb_Nombre = new javax.swing.JLabel();
+        lb_Debilidad = new javax.swing.JLabel();
+        lb_Poder = new javax.swing.JLabel();
+        lb_Fuerza = new javax.swing.JLabel();
+        lb_Universo = new javax.swing.JLabel();
+        lb_ResistenciaMental = new javax.swing.JLabel();
+        lb_ResistenciaFisica = new javax.swing.JLabel();
+        lb_Vida = new javax.swing.JLabel();
+        Tb_Nombre = new javax.swing.JTextField();
+        Tb_Debilidad = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JL_Universo = new javax.swing.JList<>();
+        TbF_FuerzaMental = new javax.swing.JFormattedTextField();
+        TbF_FuerzaFisica = new javax.swing.JFormattedTextField();
+        TbF_ResistenciaFisica = new javax.swing.JFormattedTextField();
+        TbF_ResistenciaMental = new javax.swing.JFormattedTextField();
+        TbF_Vida = new javax.swing.JFormattedTextField();
+        lb_TituloAgregarPersonaje = new javax.swing.JLabel();
         lb_Menu = new javax.swing.JLabel();
+        BMenu_AgregarPersonaje = new javax.swing.JButton();
+        BMenu_ListarPersonajes = new javax.swing.JButton();
+        BMenu_SimulacionBatalla = new javax.swing.JButton();
+
+        JF_AgregarPersonaje.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        JF_AgregarPersonaje.setTitle("AgregarPersonaje");
+
+        B_SalirAgregarPersonaje.setText("Salir");
+        B_SalirAgregarPersonaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_SalirAgregarPersonajeActionPerformed(evt);
+            }
+        });
+
+        B_AgregarPersonaje1.setText("AgregarPersonaje");
+
+        lb_Nombre.setText("Nombre");
+
+        lb_Debilidad.setText("Debilidad");
+
+        lb_Poder.setText("Poder");
+
+        lb_Fuerza.setText("Fuerza");
+
+        lb_Universo.setText("Universo");
+
+        lb_ResistenciaMental.setText("Resistencia Mental");
+
+        lb_ResistenciaFisica.setText("Resistencia Fisica");
+
+        lb_Vida.setText("Vida");
+
+        JL_Universo.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Midway Games", "Capcom", "Marvel", "DC" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(JL_Universo);
+
+        lb_TituloAgregarPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_TituloAgregarPersonaje.setText("Agregar Personaje");
+
+        javax.swing.GroupLayout JF_AgregarPersonajeLayout = new javax.swing.GroupLayout(JF_AgregarPersonaje.getContentPane());
+        JF_AgregarPersonaje.getContentPane().setLayout(JF_AgregarPersonajeLayout);
+        JF_AgregarPersonajeLayout.setHorizontalGroup(
+            JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JF_AgregarPersonajeLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JF_AgregarPersonajeLayout.createSequentialGroup()
+                        .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TbF_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_Fuerza)
+                            .addComponent(TbF_ResistenciaMental, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TbF_ResistenciaFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TbF_FuerzaFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_ResistenciaFisica)
+                            .addComponent(lb_ResistenciaMental)
+                            .addComponent(TbF_FuerzaMental, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_Poder)
+                            .addComponent(lb_Vida))
+                        .addContainerGap(204, Short.MAX_VALUE))
+                    .addGroup(JF_AgregarPersonajeLayout.createSequentialGroup()
+                        .addComponent(lb_Nombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lb_Universo)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JF_AgregarPersonajeLayout.createSequentialGroup()
+                        .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lb_TituloAgregarPersonaje)
+                            .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Tb_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_Debilidad)
+                                .addComponent(Tb_Debilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))))
+            .addGroup(JF_AgregarPersonajeLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(B_SalirAgregarPersonaje)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(B_AgregarPersonaje1)
+                .addGap(135, 135, 135))
+        );
+        JF_AgregarPersonajeLayout.setVerticalGroup(
+            JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_AgregarPersonajeLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(lb_TituloAgregarPersonaje)
+                .addGap(18, 18, 18)
+                .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_Nombre)
+                    .addComponent(lb_Universo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JF_AgregarPersonajeLayout.createSequentialGroup()
+                        .addComponent(Tb_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(lb_Debilidad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Tb_Debilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(lb_Poder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TbF_FuerzaMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_Fuerza)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TbF_FuerzaFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_ResistenciaFisica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TbF_ResistenciaFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_ResistenciaMental)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TbF_ResistenciaMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_Vida)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TbF_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(JF_AgregarPersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(B_SalirAgregarPersonaje)
+                    .addComponent(B_AgregarPersonaje1))
+                .addGap(22, 22, 22))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
 
-        lb_Menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lb_Menu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lb_Menu.setText("Menu");
         lb_Menu.setToolTipText("");
+
+        BMenu_AgregarPersonaje.setText("Agregar Personaje");
+        BMenu_AgregarPersonaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BMenu_AgregarPersonajeActionPerformed(evt);
+            }
+        });
+
+        BMenu_ListarPersonajes.setText("Listado de Personajes");
+
+        BMenu_SimulacionBatalla.setText("Simulacion de batalla");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
+                .addGap(0, 67, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BMenu_SimulacionBatalla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BMenu_ListarPersonajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BMenu_AgregarPersonaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
                 .addComponent(lb_Menu)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(40, 40, 40)
                 .addComponent(lb_Menu)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BMenu_AgregarPersonaje)
+                .addGap(41, 41, 41)
+                .addComponent(BMenu_ListarPersonajes)
+                .addGap(43, 43, 43)
+                .addComponent(BMenu_SimulacionBatalla)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BMenu_AgregarPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMenu_AgregarPersonajeActionPerformed
+        // TODO add your handling code here:
+        JF_AgregarPersonaje.pack();
+        JF_AgregarPersonaje.setLocationRelativeTo(this);
+        JF_AgregarPersonaje.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BMenu_AgregarPersonajeActionPerformed
+
+    private void B_SalirAgregarPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_SalirAgregarPersonajeActionPerformed
+        // TODO add your handling code here:
+        this.setLocationRelativeTo(this);
+        JF_AgregarPersonaje.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_B_SalirAgregarPersonajeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,6 +271,30 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BMenu_AgregarPersonaje;
+    private javax.swing.JButton BMenu_ListarPersonajes;
+    private javax.swing.JButton BMenu_SimulacionBatalla;
+    private javax.swing.JButton B_AgregarPersonaje1;
+    private javax.swing.JButton B_SalirAgregarPersonaje;
+    private javax.swing.JFrame JF_AgregarPersonaje;
+    private javax.swing.JList<String> JL_Universo;
+    private javax.swing.JFormattedTextField TbF_FuerzaFisica;
+    private javax.swing.JFormattedTextField TbF_FuerzaMental;
+    private javax.swing.JFormattedTextField TbF_ResistenciaFisica;
+    private javax.swing.JFormattedTextField TbF_ResistenciaMental;
+    private javax.swing.JFormattedTextField TbF_Vida;
+    private javax.swing.JTextField Tb_Debilidad;
+    private javax.swing.JTextField Tb_Nombre;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb_Debilidad;
+    private javax.swing.JLabel lb_Fuerza;
     private javax.swing.JLabel lb_Menu;
+    private javax.swing.JLabel lb_Nombre;
+    private javax.swing.JLabel lb_Poder;
+    private javax.swing.JLabel lb_ResistenciaFisica;
+    private javax.swing.JLabel lb_ResistenciaMental;
+    private javax.swing.JLabel lb_TituloAgregarPersonaje;
+    private javax.swing.JLabel lb_Universo;
+    private javax.swing.JLabel lb_Vida;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,19 +1,21 @@
 package joselobo_lab5p2;
+
 public class Personaje {
-    private String nombre,debilidad,universoPertenece;
-    private int poder,fuerza,agilidadFisica,agilidadMental,vida;
+
+    private String nombre, debilidad, universoPertenece;
+    private int fuerzaMental, fuerzaFisica, resistenciaFisica, resistenciaMental, vida;
 
     public Personaje() {
     }
 
-    public Personaje(String nombre, String debilidad, String universoPertenece, int poder, int fuerza, int agilidadFisica, int agilidadMental, int vida) {
+    public Personaje(String nombre, String debilidad, String universoPertenece, int fuerzaMental, int fuerzaFisica, int resistenciaFisica, int resistenciaMental, int vida) {
         this.nombre = nombre;
         this.debilidad = debilidad;
         this.universoPertenece = universoPertenece;
-        this.poder = poder;
-        this.fuerza = fuerza;
-        this.agilidadFisica = agilidadFisica;
-        this.agilidadMental = agilidadMental;
+        this.fuerzaMental = fuerzaMental;
+        this.fuerzaFisica = fuerzaFisica;
+        this.resistenciaFisica = resistenciaFisica;
+        this.resistenciaMental = resistenciaMental;
         this.vida = vida;
     }
 
@@ -41,36 +43,36 @@ public class Personaje {
         this.universoPertenece = universoPertenece;
     }
 
-    public int getPoder() {
-        return poder;
+    public int getFuerzaMental() {
+        return fuerzaMental;
     }
 
-    public void setPoder(int poder) {
-        this.poder = poder;
+    public void setFuerzaMental(int fuerzaMental) {
+        this.fuerzaMental = fuerzaMental;
     }
 
-    public int getFuerza() {
-        return fuerza;
+    public int getFuerzaFisica() {
+        return fuerzaFisica;
     }
 
-    public void setFuerza(int fuerza) {
-        this.fuerza = fuerza;
+    public void setFuerzaFisica(int fuerzaFisica) {
+        this.fuerzaFisica = fuerzaFisica;
     }
 
-    public int getAgilidadFisica() {
-        return agilidadFisica;
+    public int getResistenciaFisica() {
+        return resistenciaFisica;
     }
 
-    public void setAgilidadFisica(int agilidadFisica) {
-        this.agilidadFisica = agilidadFisica;
+    public void setResistenciaFisica(int resistenciaFisica) {
+        this.resistenciaFisica = resistenciaFisica;
     }
 
-    public int getAgilidadMental() {
-        return agilidadMental;
+    public int getResistenciaMental() {
+        return resistenciaMental;
     }
 
-    public void setAgilidadMental(int agilidadMental) {
-        this.agilidadMental = agilidadMental;
+    public void setResistenciaMental(int resistenciaMental) {
+        this.resistenciaMental = resistenciaMental;
     }
 
     public int getVida() {
@@ -83,7 +85,7 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "nombre->" + nombre + "\ndebilidad->" + debilidad + "\nuniversoPertenece->" + universoPertenece + "\npoder->" + poder + "\nfuerza->" + fuerza + "\nagilidadFisica->" + agilidadFisica + "\nagilidadMental->" + agilidadMental + "\nvida->" + vida;
+        return "nombre->" + nombre + "\ndebilidad->" + debilidad + "\nuniversoPertenece->" + universoPertenece + "\npoder->" + fuerzaMental + "\nfuerza->" + fuerzaFisica + "\nagilidadFisica->" + resistenciaFisica + "\nagilidadMental->" + resistenciaMental + "\nvida->" + vida;
     }
-    
+
 }
