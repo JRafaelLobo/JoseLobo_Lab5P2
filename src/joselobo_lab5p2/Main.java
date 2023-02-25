@@ -63,8 +63,15 @@ public class Main extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         JL_PersonajesJugador1 = new javax.swing.JList<>();
         B_RegresarBatalla = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lb_Titulo = new javax.swing.JLabel();
         JF_Campo = new javax.swing.JFrame();
+        lb_BatallaTitulo = new javax.swing.JLabel();
+        lb_JugadorActivo = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TA_Pantalla = new javax.swing.JTextArea();
+        B_AtaqueFisico = new javax.swing.JButton();
+        B_AtaqueMental = new javax.swing.JButton();
+        B_Resistencia = new javax.swing.JButton();
         lb_Menu = new javax.swing.JLabel();
         BMenu_AgregarPersonaje = new javax.swing.JButton();
         BMenu_ListarPersonajes = new javax.swing.JButton();
@@ -314,6 +321,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3.setViewportView(JL_PersonajesJugador2);
 
         B_Batalla.setText("Batalla");
+        B_Batalla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_BatallaMouseClicked(evt);
+            }
+        });
 
         JL_PersonajesJugador1.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(JL_PersonajesJugador1);
@@ -325,8 +337,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Selecionen sus personajes");
+        lb_Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_Titulo.setText("Selecionen sus personajes");
 
         javax.swing.GroupLayout JF_SimulacionPeleaLayout = new javax.swing.GroupLayout(JF_SimulacionPelea.getContentPane());
         JF_SimulacionPelea.getContentPane().setLayout(JF_SimulacionPeleaLayout);
@@ -340,7 +352,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(111, 111, 111))
             .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
                 .addGap(195, 195, 195)
-                .addComponent(jLabel1)
+                .addComponent(lb_Titulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
                 .addGap(106, 106, 106)
@@ -359,7 +371,7 @@ public class Main extends javax.swing.JFrame {
             JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addComponent(lb_Titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CB_Jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,15 +390,75 @@ public class Main extends javax.swing.JFrame {
         JF_Campo.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         JF_Campo.setTitle("Campo de Batalla");
 
+        lb_BatallaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_BatallaTitulo.setText("Batalla");
+
+        lb_JugadorActivo.setText("Jugador 1");
+
+        TA_Pantalla.setColumns(20);
+        TA_Pantalla.setRows(5);
+        jScrollPane6.setViewportView(TA_Pantalla);
+
+        B_AtaqueFisico.setText("Ataque Fisico");
+        B_AtaqueFisico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_AtaqueFisicoMouseClicked(evt);
+            }
+        });
+
+        B_AtaqueMental.setText("Ataque Mental");
+        B_AtaqueMental.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_AtaqueMentalMouseClicked(evt);
+            }
+        });
+
+        B_Resistencia.setText("Resistencia");
+        B_Resistencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_ResistenciaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout JF_CampoLayout = new javax.swing.GroupLayout(JF_Campo.getContentPane());
         JF_Campo.getContentPane().setLayout(JF_CampoLayout);
         JF_CampoLayout.setHorizontalGroup(
             JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(JF_CampoLayout.createSequentialGroup()
+                .addGroup(JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JF_CampoLayout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(lb_BatallaTitulo))
+                    .addGroup(JF_CampoLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_JugadorActivo)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(JF_CampoLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(B_AtaqueFisico)
+                .addGap(90, 90, 90)
+                .addComponent(B_AtaqueMental)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(B_Resistencia)
+                .addGap(90, 90, 90))
         );
         JF_CampoLayout.setVerticalGroup(
             JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(JF_CampoLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lb_BatallaTitulo)
+                .addGap(39, 39, 39)
+                .addComponent(lb_JugadorActivo)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addGroup(JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(B_AtaqueFisico)
+                    .addComponent(B_AtaqueMental)
+                    .addComponent(B_Resistencia))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -659,6 +731,55 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CB_Jugador2ActionPerformed
 
+    private void B_BatallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_BatallaMouseClicked
+        // TODO add your handling code here:
+        personaje_Jugador1 = ((Personaje) CB_Jugador1.getSelectedItem());
+        personaje_Jugador2 = ((Personaje) CB_Jugador2.getSelectedItem());
+        JF_Campo.pack();
+        JF_Campo.setLocationRelativeTo(this);
+        JF_Campo.setVisible(true);
+        JF_SimulacionPelea.setVisible(false);
+    }//GEN-LAST:event_B_BatallaMouseClicked
+
+    private void B_AtaqueFisicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_AtaqueFisicoMouseClicked
+        // TODO add your handling code here:
+        if (lb_JugadorActivo.getText().equals("Jugador 1")) {
+            personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() - (personaje_Jugador1.getFuerzaFisica() * .5)));
+            lb_JugadorActivo.setText("Jugador 2");
+            TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaFisica() * .5) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+        } else {
+            personaje_Jugador1.setVida((int) (personaje_Jugador1.getVida() - (personaje_Jugador2.getFuerzaFisica() * .5)));
+            lb_JugadorActivo.setText("Jugador 1");
+            TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() * .5) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+        }
+    }//GEN-LAST:event_B_AtaqueFisicoMouseClicked
+
+    private void B_ResistenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_ResistenciaMouseClicked
+        // TODO add your handling code here:
+        if (lb_JugadorActivo.getText().equals("Jugador 1")) {
+            personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() * 1.15));
+            lb_JugadorActivo.setText("Jugador 2");
+            TA_Pantalla.setText("El Jugador 1 se ha aplicado resistencia " + (personaje_Jugador1.getVida() * .15) + " al jugador 1 quedandole " + personaje_Jugador1.getVida());
+        } else {
+            personaje_Jugador1.setVida((int) (personaje_Jugador2.getVida() * 1.15));
+            lb_JugadorActivo.setText("Jugador 1");
+            TA_Pantalla.setText("El Jugador 2  se ha aplicado resistencia  " + (personaje_Jugador2.getVida() * .15) + " al jugador 1 quedadole " + personaje_Jugador2.getVida());
+        }
+    }//GEN-LAST:event_B_ResistenciaMouseClicked
+
+    private void B_AtaqueMentalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_AtaqueMentalMouseClicked
+        // TODO add your handling code here:
+        if (lb_JugadorActivo.getText().equals("Jugador 1")) {
+            personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() - (personaje_Jugador1.getFuerzaFisica() / 3)));
+            lb_JugadorActivo.setText("Jugador 2");
+            TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaMental() / 3) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+        } else {
+            personaje_Jugador1.setVida((int) (personaje_Jugador1.getVida() - (personaje_Jugador2.getFuerzaFisica() / 3)));
+            lb_JugadorActivo.setText("Jugador 1");
+            TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() / 3) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+        }
+    }//GEN-LAST:event_B_AtaqueMentalMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -699,9 +820,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BMenu_ListarPersonajes;
     private javax.swing.JButton BMenu_SimulacionBatalla;
     private javax.swing.JButton B_AgregarPersonaje1;
+    private javax.swing.JButton B_AtaqueFisico;
+    private javax.swing.JButton B_AtaqueMental;
     private javax.swing.JButton B_Batalla;
     private javax.swing.JButton B_ListadoVolver;
     private javax.swing.JButton B_RegresarBatalla;
+    private javax.swing.JButton B_Resistencia;
     private javax.swing.JButton B_SalirAgregarPersonaje;
     private javax.swing.JComboBox<String> CB_Jugador1;
     private javax.swing.JComboBox<String> CB_Jugador2;
@@ -714,6 +838,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> JL_Universo;
     private javax.swing.JTree JT_Personajes;
     private javax.swing.JList<String> Listado_Personajes;
+    private javax.swing.JTextArea TA_Pantalla;
     private javax.swing.JFormattedTextField TbF_FuerzaFisica;
     private javax.swing.JFormattedTextField TbF_FuerzaMental;
     private javax.swing.JFormattedTextField TbF_ResistenciaFisica;
@@ -722,14 +847,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField Tb_Debilidad;
     private javax.swing.JTextField Tb_Nombre;
     private javax.swing.JTextField Tb_TituloListar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JLabel lb_BatallaTitulo;
     private javax.swing.JLabel lb_Debilidad;
     private javax.swing.JLabel lb_Fuerza;
+    private javax.swing.JLabel lb_JugadorActivo;
     private javax.swing.JLabel lb_Listado;
     private javax.swing.JLabel lb_Menu;
     private javax.swing.JLabel lb_Nombre;
@@ -737,6 +864,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_Poder;
     private javax.swing.JLabel lb_ResistenciaFisica;
     private javax.swing.JLabel lb_ResistenciaMental;
+    private javax.swing.JLabel lb_Titulo;
     private javax.swing.JLabel lb_TituloAgregarPersonaje;
     private javax.swing.JLabel lb_Universo;
     private javax.swing.JLabel lb_Vida;
@@ -744,4 +872,6 @@ public class Main extends javax.swing.JFrame {
 //Mis Propias Variables
     DefaultMutableTreeNode nodo_seleccionado;
     Personaje personaje_seleccionado;
+    Personaje personaje_Jugador1;
+    Personaje personaje_Jugador2;
 }
