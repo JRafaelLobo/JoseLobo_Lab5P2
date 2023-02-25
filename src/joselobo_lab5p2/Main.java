@@ -72,6 +72,8 @@ public class Main extends javax.swing.JFrame {
         B_AtaqueFisico = new javax.swing.JButton();
         B_AtaqueMental = new javax.swing.JButton();
         B_Resistencia = new javax.swing.JButton();
+        Pop_Menu = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenuItem();
         lb_Menu = new javax.swing.JLabel();
         BMenu_AgregarPersonaje = new javax.swing.JButton();
         BMenu_ListarPersonajes = new javax.swing.JButton();
@@ -461,6 +463,15 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
+        Eliminar.setText("Eliminar");
+        Eliminar.setToolTipText("");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        Pop_Menu.add(Eliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
 
@@ -595,6 +606,7 @@ public class Main extends javax.swing.JFrame {
     private void JT_PersonajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_PersonajesMouseClicked
         // TODO add your handling code here:
         if (evt.isMetaDown()) {
+
             //seleccionar un nodo con click derecho
             DefaultListModel ModelList = (DefaultListModel) Listado_Personajes.getModel();
             DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
@@ -608,6 +620,8 @@ public class Main extends javax.swing.JFrame {
                             getLastPathComponent();
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
             if (nodo_seleccionado.getUserObject() instanceof Personaje) {
+                Pop_Menu.show(evt.getComponent(), evt.getX(), evt.getY());
+
                 personaje_seleccionado
                         = (Personaje) nodo_seleccionado.
                                 getUserObject();
@@ -811,6 +825,24 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_B_AtaqueMentalMouseClicked
 
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultTreeModel m
+                    = (DefaultTreeModel) JT_Personajes.getModel();
+            m.removeNodeFromParent(
+                    nodo_seleccionado);
+            m.reload();
+        }
+    }//GEN-LAST:event_EliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -860,6 +892,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_SalirAgregarPersonaje;
     private javax.swing.JComboBox<String> CB_Jugador1;
     private javax.swing.JComboBox<String> CB_Jugador2;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JFrame JF_AgregarPersonaje;
     private javax.swing.JFrame JF_Campo;
     private javax.swing.JFrame JF_ListarPersonajes;
@@ -869,6 +902,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> JL_Universo;
     private javax.swing.JTree JT_Personajes;
     private javax.swing.JList<String> Listado_Personajes;
+    private javax.swing.JPopupMenu Pop_Menu;
     private javax.swing.JTextArea TA_Pantalla;
     private javax.swing.JFormattedTextField TbF_FuerzaFisica;
     private javax.swing.JFormattedTextField TbF_FuerzaMental;
