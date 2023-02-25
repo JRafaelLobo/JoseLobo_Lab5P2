@@ -376,7 +376,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(lb_Titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CB_Jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB_Jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CB_Jugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -791,11 +791,27 @@ public class Main extends javax.swing.JFrame {
         if (lb_JugadorActivo.getText().equals("Jugador 1")) {
             personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() - (personaje_Jugador1.getFuerzaFisica() * .5)));
             lb_JugadorActivo.setText("Jugador 2");
-            TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaFisica() * .5) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+            if (personaje_Jugador2.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 1 Gano", "fin", -1);
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            } else {
+                TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaFisica() * .5) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+            }
         } else {
             personaje_Jugador1.setVida((int) (personaje_Jugador1.getVida() - (personaje_Jugador2.getFuerzaFisica() * .5)));
             lb_JugadorActivo.setText("Jugador 1");
-            TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() * .5) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+            if (personaje_Jugador1.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            } else {
+                TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() * .5) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+            }
         }
     }//GEN-LAST:event_B_AtaqueFisicoMouseClicked
 
@@ -804,11 +820,27 @@ public class Main extends javax.swing.JFrame {
         if (lb_JugadorActivo.getText().equals("Jugador 1")) {
             personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() * 1.15));
             lb_JugadorActivo.setText("Jugador 2");
-            TA_Pantalla.setText("El Jugador 1 se ha aplicado resistencia " + (personaje_Jugador1.getVida() * .15) + " al jugador 1 quedandole " + personaje_Jugador1.getVida());
+            if (personaje_Jugador2.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 1 Gano", "fin", -1);
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            }
         } else {
+            TA_Pantalla.setText("El Jugador 1 se ha aplicado resistencia " + (personaje_Jugador1.getVida() * .15) + " al jugador 1 quedandole " + personaje_Jugador1.getVida());
+
             personaje_Jugador1.setVida((int) (personaje_Jugador2.getVida() * 1.15));
             lb_JugadorActivo.setText("Jugador 1");
-            TA_Pantalla.setText("El Jugador 2  se ha aplicado resistencia  " + (personaje_Jugador2.getVida() * .15) + " al jugador 1 quedadole " + personaje_Jugador2.getVida());
+            if (personaje_Jugador1.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            } else {
+                TA_Pantalla.setText("El Jugador 2  se ha aplicado resistencia  " + (personaje_Jugador2.getVida() * .15) + " al jugador 1 quedadole " + personaje_Jugador2.getVida());
+            }
         }
     }//GEN-LAST:event_B_ResistenciaMouseClicked
 
@@ -817,11 +849,26 @@ public class Main extends javax.swing.JFrame {
         if (lb_JugadorActivo.getText().equals("Jugador 1")) {
             personaje_Jugador2.setVida((int) (personaje_Jugador2.getVida() - (personaje_Jugador1.getFuerzaFisica() / 3)));
             lb_JugadorActivo.setText("Jugador 2");
-            TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaMental() / 3) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+            if (personaje_Jugador2.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 1 Gano", "fin", -1);
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            } else {
+                TA_Pantalla.setText("El Jugador 1 le ha bajado " + (personaje_Jugador1.getFuerzaMental() / 3) + " al jugador 2 quedadole " + personaje_Jugador2.getVida());
+            }
         } else {
             personaje_Jugador1.setVida((int) (personaje_Jugador1.getVida() - (personaje_Jugador2.getFuerzaFisica() / 3)));
             lb_JugadorActivo.setText("Jugador 1");
-            TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() / 3) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+            if (personaje_Jugador1.getVida() < 0) {
+                JOptionPane.showMessageDialog(JF_ListarPersonajes, "Jugador 2 Gano", "fin", -1);
+                this.setLocationRelativeTo(this);
+                JF_Campo.setVisible(false);
+                this.setVisible(true);
+            } else {
+                TA_Pantalla.setText("El Jugador 2 le ha bajado " + (personaje_Jugador2.getFuerzaFisica() / 3) + " al jugador 1 quedadole " + personaje_Jugador1.getVida());
+            }
         }
     }//GEN-LAST:event_B_AtaqueMentalMouseClicked
 
