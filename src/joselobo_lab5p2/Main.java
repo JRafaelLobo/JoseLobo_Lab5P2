@@ -733,8 +733,39 @@ public class Main extends javax.swing.JFrame {
 
     private void B_BatallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_BatallaMouseClicked
         // TODO add your handling code here:
-        personaje_Jugador1 = ((Personaje) CB_Jugador1.getSelectedItem());
-        personaje_Jugador2 = ((Personaje) CB_Jugador2.getSelectedItem());
+        DefaultListModel ModelList = (DefaultListModel) JL_PersonajesJugador1.getModel();
+        DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
+
+        if (CB_Jugador1.getSelectedItem().toString().equals("DC")) {
+            for (int j = 0; j < raiz.getChildAt(3).getChildCount(); j++) {
+                if (((Personaje) raiz.getChildAt(3).getChildAt(j)).toString().equals(JL_PersonajesJugador1.getSelectedValue())) {
+                    personaje_Jugador1 = ((Personaje) raiz.getChildAt(3).getChildAt(j));
+                }
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Midway Games")) {
+            for (int j = 0; j < raiz.getChildAt(0).getChildCount(); j++) {
+                if (((Personaje) raiz.getChildAt(0).getChildAt(j)).toString().equals(JL_PersonajesJugador1.getSelectedValue())) {
+                    personaje_Jugador1 = ((Personaje) raiz.getChildAt(0).getChildAt(j));
+                }
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Capcom")) {
+            for (int j = 0; j < raiz.getChildAt(1).getChildCount(); j++) {
+                if (((Personaje) raiz.getChildAt(1).getChildAt(j)).toString().equals(JL_PersonajesJugador1.getSelectedValue())) {
+                    personaje_Jugador1 = ((Personaje) raiz.getChildAt(1).getChildAt(j));
+                }
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Marvel")) {
+            for (int j = 0; j < raiz.getChildAt(2).getChildCount(); j++) {
+                if (((Personaje) raiz.getChildAt(2).getChildAt(j)).toString().equals(JL_PersonajesJugador1.getSelectedValue())) {
+                    personaje_Jugador1 = ((Personaje) raiz.getChildAt(2).getChildAt(j));
+                }
+            }
+
+        }
         JF_Campo.pack();
         JF_Campo.setLocationRelativeTo(this);
         JF_Campo.setVisible(true);
