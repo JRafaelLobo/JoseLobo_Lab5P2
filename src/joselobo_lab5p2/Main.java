@@ -54,12 +54,17 @@ public class Main extends javax.swing.JFrame {
         JT_Personajes = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         Listado_Personajes = new javax.swing.JList<>();
-        JD_SimulacionPelea = new javax.swing.JFrame();
+        JF_SimulacionPelea = new javax.swing.JFrame();
         CB_Jugador1 = new javax.swing.JComboBox<>();
         CB_Jugador2 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        JL_PersonajesJugador2 = new javax.swing.JList<>();
         B_Batalla = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        JL_PersonajesJugador1 = new javax.swing.JList<>();
+        B_RegresarBatalla = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JF_Campo = new javax.swing.JFrame();
         lb_Menu = new javax.swing.JLabel();
         BMenu_AgregarPersonaje = new javax.swing.JButton();
         BMenu_ListarPersonajes = new javax.swing.JButton();
@@ -288,48 +293,100 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        JD_SimulacionPelea.setTitle("Elijan sus Personajes");
+        JF_SimulacionPelea.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        JF_SimulacionPelea.setTitle("Elijan sus Personajes");
 
         CB_Jugador1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Midway Games", "Capcom", "Marvel", "DC" }));
+        CB_Jugador1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_Jugador1ActionPerformed(evt);
+            }
+        });
 
         CB_Jugador2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Midway Games", "Capcom", "Marvel", "DC" }));
+        CB_Jugador2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_Jugador2ActionPerformed(evt);
+            }
+        });
 
-        jScrollPane3.setViewportView(jList1);
+        JL_PersonajesJugador2.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(JL_PersonajesJugador2);
 
         B_Batalla.setText("Batalla");
 
-        javax.swing.GroupLayout JD_SimulacionPeleaLayout = new javax.swing.GroupLayout(JD_SimulacionPelea.getContentPane());
-        JD_SimulacionPelea.getContentPane().setLayout(JD_SimulacionPeleaLayout);
-        JD_SimulacionPeleaLayout.setHorizontalGroup(
-            JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_SimulacionPeleaLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+        JL_PersonajesJugador1.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(JL_PersonajesJugador1);
+
+        B_RegresarBatalla.setText("Regresar");
+        B_RegresarBatalla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_RegresarBatallaMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Selecionen sus personajes");
+
+        javax.swing.GroupLayout JF_SimulacionPeleaLayout = new javax.swing.GroupLayout(JF_SimulacionPelea.getContentPane());
+        JF_SimulacionPelea.getContentPane().setLayout(JF_SimulacionPeleaLayout);
+        JF_SimulacionPeleaLayout.setHorizontalGroup(
+            JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JF_SimulacionPeleaLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
                 .addComponent(CB_Jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CB_Jugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
-            .addGroup(JD_SimulacionPeleaLayout.createSequentialGroup()
-                .addGroup(JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_SimulacionPeleaLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_SimulacionPeleaLayout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(B_Batalla)))
+                .addGap(111, 111, 111))
+            .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(B_RegresarBatalla)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(B_Batalla)
+                .addGap(151, 151, 151))
+            .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
-        JD_SimulacionPeleaLayout.setVerticalGroup(
-            JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_SimulacionPeleaLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(JD_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        JF_SimulacionPeleaLayout.setVerticalGroup(
+            JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JF_SimulacionPeleaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CB_Jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CB_Jugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(B_Batalla)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(JF_SimulacionPeleaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(B_RegresarBatalla)
+                    .addComponent(B_Batalla))
+                .addGap(35, 35, 35))
+        );
+
+        JF_Campo.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        JF_Campo.setTitle("Campo de Batalla");
+
+        javax.swing.GroupLayout JF_CampoLayout = new javax.swing.GroupLayout(JF_Campo.getContentPane());
+        JF_Campo.getContentPane().setLayout(JF_CampoLayout);
+        JF_CampoLayout.setHorizontalGroup(
+            JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JF_CampoLayout.setVerticalGroup(
+            JF_CampoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -354,6 +411,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         BMenu_SimulacionBatalla.setText("Simulacion de batalla");
+        BMenu_SimulacionBatalla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BMenu_SimulacionBatallaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -526,6 +588,77 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BMenu_ListarPersonajesMouseClicked
 
+    private void BMenu_SimulacionBatallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BMenu_SimulacionBatallaMouseClicked
+        // TODO add your handling code here:
+        JF_SimulacionPelea.pack();
+        JF_SimulacionPelea.setLocationRelativeTo(this);
+        JF_SimulacionPelea.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BMenu_SimulacionBatallaMouseClicked
+
+    private void B_RegresarBatallaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_RegresarBatallaMouseClicked
+        // TODO add your handling code here:
+        this.setLocationRelativeTo(this);
+        JF_SimulacionPelea.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_B_RegresarBatallaMouseClicked
+
+    private void CB_Jugador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Jugador1ActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel ModelList = (DefaultListModel) JL_PersonajesJugador1.getModel();
+        DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
+        ModelList.removeAllElements();
+        if (CB_Jugador1.getSelectedItem().toString().equals("DC")) {
+            for (int j = 0; j < raiz.getChildAt(3).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(3).getChildAt(j));
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Midway Games")) {
+            for (int j = 0; j < raiz.getChildAt(0).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(0).getChildAt(j));
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Capcom")) {
+            for (int j = 0; j < raiz.getChildAt(1).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(1).getChildAt(j));
+            }
+        }
+        if (CB_Jugador1.getSelectedItem().toString().equals("Marvel")) {
+            for (int j = 0; j < raiz.getChildAt(2).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(2).getChildAt(j));
+            }
+        }
+    }//GEN-LAST:event_CB_Jugador1ActionPerformed
+
+    private void CB_Jugador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Jugador2ActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel ModelList = (DefaultListModel) JL_PersonajesJugador2.getModel();
+        DefaultTreeModel model = (DefaultTreeModel) JT_Personajes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) model.getRoot();
+        ModelList.removeAllElements();
+        if (CB_Jugador2.getSelectedItem().toString().equals("DC")) {
+            for (int j = 0; j < raiz.getChildAt(3).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(3).getChildAt(j));
+            }
+        }
+        if (CB_Jugador2.getSelectedItem().toString().equals("Midway Games")) {
+            for (int j = 0; j < raiz.getChildAt(0).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(0).getChildAt(j));
+            }
+        }
+        if (CB_Jugador2.getSelectedItem().toString().equals("Capcom")) {
+            for (int j = 0; j < raiz.getChildAt(1).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(1).getChildAt(j));
+            }
+        }
+        if (CB_Jugador2.getSelectedItem().toString().equals("Marvel")) {
+            for (int j = 0; j < raiz.getChildAt(2).getChildCount(); j++) {
+                ModelList.addElement(raiz.getChildAt(2).getChildAt(j));
+            }
+        }
+    }//GEN-LAST:event_CB_Jugador2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,12 +701,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton B_AgregarPersonaje1;
     private javax.swing.JButton B_Batalla;
     private javax.swing.JButton B_ListadoVolver;
+    private javax.swing.JButton B_RegresarBatalla;
     private javax.swing.JButton B_SalirAgregarPersonaje;
     private javax.swing.JComboBox<String> CB_Jugador1;
     private javax.swing.JComboBox<String> CB_Jugador2;
-    private javax.swing.JFrame JD_SimulacionPelea;
     private javax.swing.JFrame JF_AgregarPersonaje;
+    private javax.swing.JFrame JF_Campo;
     private javax.swing.JFrame JF_ListarPersonajes;
+    private javax.swing.JFrame JF_SimulacionPelea;
+    private javax.swing.JList<String> JL_PersonajesJugador1;
+    private javax.swing.JList<String> JL_PersonajesJugador2;
     private javax.swing.JList<String> JL_Universo;
     private javax.swing.JTree JT_Personajes;
     private javax.swing.JList<String> Listado_Personajes;
@@ -585,11 +722,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField Tb_Debilidad;
     private javax.swing.JTextField Tb_Nombre;
     private javax.swing.JTextField Tb_TituloListar;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lb_Debilidad;
     private javax.swing.JLabel lb_Fuerza;
     private javax.swing.JLabel lb_Listado;
